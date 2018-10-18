@@ -28,7 +28,6 @@ plugins/
 plugins/android.json
 plugins/ios.json
 www/
-src/app/credentials_firebase.js
 $RECYCLE.BIN/
 
 .DS_Store
