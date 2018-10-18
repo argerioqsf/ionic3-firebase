@@ -1,14 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Chat</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
 
-<ion-content padding>
-  <h3 text-center>Nickname</h3>
-  <h3 text-center>Email</h3>
-  <button ion-button block secondary (click)="logout()">Logout</button>
-</ion-content>
+    <div class="conversa-conteiner">
+      <ion-grid>
+        <ion-row *ngFor="let mensagem of mensagens">
+          <ion-col offset-7 col-5 class="mensagem_eu" *ngIf="mensagem.usuario == dadosUsuario.nickname">
+            <span class="nome_eu">{{mensagem?.usuario}}:</span><br>
+            <span text-align: justify>{{mensagem?.mensagem}}</span>
+          </ion-col>
+          <ion-col col-7 class="mensagem_outros" *ngIf="mensagem.usuario != dadosUsuario.nickname">
+            <span class="nome_eu">{{mensagem?.usuario}}:</span><br>
+            <span text-align: justify>{{mensagem?.mensagem}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </div>
+  
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-10>
+          <ion-item no-lines class="input-enviar">
+            <ion-textarea rows="1" (input)="ajusteTextArea($event)" [(ngModel)]="textoDigitado" autocomplete="true" type="text" placeholder="Digite aqui"></ion-textarea>          
+          </ion-item>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button color="danger" class="btn-enviar" (click)="enviarMensagem(textoDigitado)">
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+  
