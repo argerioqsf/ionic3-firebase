@@ -9,9 +9,11 @@ constructor() {}
 		return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
+  /*
   resetPassword(email:string):Promise<void> {
       return firebase.auth().sendPasswordResetEmail(email);
   }
+  */
 
   logoutUser(): Promise<void> {
       return firebase.auth().signOut();

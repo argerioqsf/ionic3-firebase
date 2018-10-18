@@ -12,12 +12,14 @@ export class FirebaseProvider {
   user;
   constructor() {
     console.log('Hello FirebaseProvider Provider');
+
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user.uid;
         //unsubscribe();
       }
     });
+    
   }
 
   list(path){
