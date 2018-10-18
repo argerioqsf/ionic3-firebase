@@ -22,14 +22,16 @@
 											   && loginForm.controls.password.dirty">
 			<p>A senha precisa conter mais de 6 caracteres.</p>
 		</ion-item>
-		<button color="yell" ion-button block type="submit" [disabled]="!loginForm.valid">
+		<button color="dark" ion-button block type="submit" [disabled]="!loginForm.valid">
 			Entrar
 		</button>
 	</form>
 	<button style="color: white" ion-button block clear (click)="goToSignup()">
 		Criar nova conta
 	</button>
-	<button style="color: white" ion-button block clear (click)="goToResetPassword()">
-		Esqueci minha senha :(
-  </button>
+	<!--
+		<button style="color: white" ion-button block clear (click)="goToResetPassword()">
+			Esqueci minha senha :(
+		</button>
+  	-->
 </ion-content>

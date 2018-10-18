@@ -7,14 +7,11 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login'
 
-import { FIREBASE_CREDENTIALS } from './credentials_firebase';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AutenticacaoProvider } from '../providers/autenticacao/autenticacao';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
-import { BackgroundMode } from '@ionic-native/background-mode';
 
 @NgModule({
   declarations: [
@@ -41,7 +38,6 @@ import { BackgroundMode } from '@ionic-native/background-mode';
     FirebaseProvider,
     AutenticacaoProvider,
     AndroidPermissions,
-    BackgroundMode
   ]
 })
 export class AppModule {}

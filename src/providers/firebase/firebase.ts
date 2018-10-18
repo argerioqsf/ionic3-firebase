@@ -8,6 +8,7 @@ import firebase from 'firebase';
 */
 @Injectable()
 export class FirebaseProvider {
+  
   user;
   constructor() {
     console.log('Hello FirebaseProvider Provider');
@@ -35,23 +36,25 @@ export class FirebaseProvider {
 			});
 		  });
   }
-  object(path){
-    return new Promise((resolve, reject)=>{
-			firebase.database().ref(path).once("value",userProfileSnapshot=>{
-				let object = userProfileSnapshot.val();
-				console.log("result/object:",object);
-				resolve(object);
-			},error=>{
-        console.log("Erro/object: ",error);
-				resolve("Erro");
-			});
-		  });
-  }
+
   refOn(path){
     return firebase.database().ref(path);
   }
-  refOff(path){
-    return firebase.database().ref(path).off();
+
+  update(path,data){
+    return firebase.database().ref(path).update(data);
+  }
+
+  set(path,valor){
+    return firebase.database().ref(path).set(valor);
+  }
+
+  push(path,valor){
+    return firebase.database().ref(path).push(valor);
+  }
+  
+  delete(path){ 
+    return firebase.database().ref(path).remove();
   }
 
 }

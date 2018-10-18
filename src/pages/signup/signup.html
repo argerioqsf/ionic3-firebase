@@ -1,0 +1,41 @@
+
+
+<ion-content  padding class="fundo">
+	<form style="padding-top: 170px;" [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+      <ion-label stacked>Nickname</ion-label>
+      <ion-input formControlName="nickname" type="text"
+              placeholder="Seu nickname"
+              [class.invalid]="!signupForm.controls.nickname.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+			<ion-label stacked>Email</ion-label>
+			<ion-input formControlName="email" type="email"
+					   placeholder="Seu email"
+					   [class.invalid]="!signupForm.controls.email.valid && blur">
+			</ion-input>
+		</ion-item>
+		<ion-item class="error-message" *ngIf="!signupForm.controls.email.valid &&
+											   signupForm.controls.email.dirty">
+			<p>Por favor informe um email válido.</p>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Senha</ion-label>
+				<ion-input formControlName="password" type="password"
+			   placeholder="sua senha"
+			   [class.invalid]="!signupForm.controls.password.valid && blur">
+				</ion-input>
+		</ion-item>
+		<ion-item class="error-message" *ngIf="!signupForm.controls.password.valid
+											   && signupForm.controls.password.dirty">
+			<p>A senha precisa conter mais de 6 caracteres.</p>
+		</ion-item>
+		<button color="dark" ion-button block type="submit" [disabled]="!signupForm.valid">
+			Criar conta
+		</button>
+	</form>
+    <button style="color: white" ion-button block clear (click)="Login()">
+      Login
+    </button>
+</ion-content>
